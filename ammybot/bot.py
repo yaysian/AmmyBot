@@ -1,4 +1,4 @@
-# MahvelBot v0.1
+# AmmyBot v0.2
 #
 
 import asyncio
@@ -32,31 +32,9 @@ class AmmyBot(commands.Bot):
         if message.author == self.user:
             return
         if message.content.startswith(self.config.command_prefix):
-            # if 'reboot' in message.content.lower() and message.author.id == self.config.owner_id:
-            #     print('unloading commands')
-            #     self.unload_extension('ammybot.command')
-            #     print('successfully unloaded commands')
-            #     print('loading commands')
-            #     self.load_extension('ammybot.command')
-            #     print('successfully loaded commands')
-            # else:
                 await self.process_commands(message)
-                #await command.getCommand(message, self)
 
 
-
-    async def on_member_join(self, member):
-        await self.send_message(member.server, '<@{}> has joined the server! **#MAHVELLIVES**'.format(member.id))
-        await self.send_message(member, 'Welcome {}! Type !help for a list of available commands.'.format(member.name))
-
-
-# if __name__ == '__main__':
-#     print('starting marvel bot')
-#     bot = MahvelBot()
-#     print('created marvel bot')
-#     @bot.command()
-#     async def add(left : int, right : int):
-#         """Adds two numbers together."""
-#         print('created add command')
-#         await bot.say(left + right)
-#     bot.run()
+if __name__ == '__main__':
+    bot = AmmyBot()
+    bot.run()
