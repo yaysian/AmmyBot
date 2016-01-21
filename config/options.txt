@@ -1,0 +1,9 @@
+[Credentials]
+Username =
+Password =
+
+[Permissions]
+OwnerID =
+
+[Chat]
+CommandPrefix = !
