@@ -1,12 +1,8 @@
 # AmmyBot v0.2
 #
 
-import asyncio
-import imp
-import discord
 from ammybot.config import Config
 from discord.ext import commands
-from ammybot import command_old
 
 class AmmyBot(commands.Bot):
     def __init__(self, config_file='config/options.txt'):
