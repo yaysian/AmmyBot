@@ -13,7 +13,6 @@ class AmmyBot(commands.Bot):
     def run(self):
         return super().run(self.config.username, self.config.password)
 
-
     async def on_ready(self):
         print('Logged in as')
         print('Username: ' + self.user.name)
@@ -28,8 +27,7 @@ class AmmyBot(commands.Bot):
         if message.author == self.user:
             return
         if message.content.startswith(self.config.command_prefix):
-                await self.process_commands(message)
-
+            await self.process_commands(message)
 
 if __name__ == '__main__':
     bot = AmmyBot()
