@@ -26,6 +26,13 @@ class Commands():
             else:
                 await self.bot.say(targetUser.mention + ' is n-naked. >///<\nhttp://i.imgur.com/CXXJV2s.png')
 
+    @commands.command()
+    async def joined(self, member : discord.Member):
+        """"""
+        await self.bot.say('{0.mention} has joined the server! **#MAHVELLIVES**'.format(member))
+
+
+
     @commands.command(pass_context=True)
     async def roll(self, ctx, sides : str, rolls : str):
         """Rolls a user-specified sided dice for a user-specified amount of rolls and returns the sum of all the rolls and each individual roll."""
@@ -33,10 +40,6 @@ class Commands():
             rolls = int(rolls)
             sides = int(sides)
         except Exception:
-            if sides.lower() == 'joe' and rolls.lower() == 'ligotti':
-                await self.bot.say('http://i1.kym-cdn.com/photos/images/original/000/085/765/3V9wt.gif')
-                return
-            else:
                 await self.bot.say('````\nInput must be valid integers.\n```'.format(command_prefix=self.bot.command_prefix))
                 return
         if (sides > 1000000) or (rolls > 1000):
@@ -51,6 +54,7 @@ class Commands():
 
     @commands.command(pass_context=True, hidden=True)
     async def reboot(self,ctx):
+        """Reload the Commands module."""
         if ctx.message.author.id == self.bot.config.owner_id:
                 print('loading commands')
                 self.bot.unload_extension('ammybot.command')
